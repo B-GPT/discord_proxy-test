@@ -6,13 +6,13 @@ export default {
 
     // 如果请求路径以 /api/v9/interactions 开头，则转发到目标 URL
     if (url.pathname.startsWith('/api/v9/interactions')) {
-      url.hostname = "www.discord.com";
+      url.hostname = targetUrl;
       newRequest = new Request(url, {
         method: 'POST', // 指定使用 POST 方法
         body: request.body, // 将原始请求的主体作为新请求的主体
         headers: request.headers, // 使用原始请求的所有头部
       });
-      return fetch(newRequest);
+      return await fetch(newRequest);
     } else {
       newRequest = new Request(url, {
         method: request.method, // 指定使用原始请求的方法
