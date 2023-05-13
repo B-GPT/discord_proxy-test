@@ -1,6 +1,6 @@
 export default { 
   async fetch(request, env) {
-    const targetUrl = 'www.discord.com'; // 指定目标 URL
+    const targetUrl = 'https://www.discord.com'; // 指定目标 URL
     const url = new URL(request.url);
     let newRequest;
 
