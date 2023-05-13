@@ -10,7 +10,13 @@ export default {
         headers: request.headers, // 使用原始请求的所有头部
       });
       return fetch(new_request);
+    } else {
+      return fetch(url, {
+          headers: request.headers,
+          method: request.method,
+          body: request.body
+          // redirect: 'follow'
+        }); 
     }
-    return env.ASSETS.fetch(request);
   },
 };
