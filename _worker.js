@@ -6,11 +6,11 @@ export default {
 
     // 如果请求路径以 /api/v9/interactions 开头，则转发到目标 URL
     if (url.pathname.startsWith('/api/v9/interactions')) {
-      url.hostname = targetUrl;
+      // url.hostname = targetUrl;
       newRequest = new Request(url, {
         method: 'POST', // 指定使用 POST 方法
-        body: await request.body, // 将原始请求的主体作为新请求的主体
-        headers: await request.headers, // 使用原始请求的所有头部
+        body: request.body, // 将原始请求的主体作为新请求的主体
+        headers: request.headers, // 使用原始请求的所有头
       });
       return fetch(await newRequest);
     } else {
